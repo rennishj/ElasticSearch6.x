@@ -32,6 +32,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Nest, Version=6.0.0.0, Culture=neutral, PublicKeyToken=96c599bbe3e70f5d" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -52,6 +53,10 @@
     <ProjectReference Include="..\Es6.DAL\Es6.DAL.csproj">
       <Project>{80ae6ed3-52b6-4a5e-8a01-55b756e79e07}</Project>
       <Name>Es6.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ES6.POCO\ES6.POCO.csproj">
+      <Project>{33CD03CD-0AED-454A-97D8-6A22C67A1DFE}</Project>
+      <Name>ES6.POCO</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

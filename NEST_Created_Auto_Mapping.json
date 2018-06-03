@@ -1,0 +1,79 @@
+{
+  "fa": {
+    "mappings": {
+      "customer": {
+        "_routing": {
+          "required": true
+        },
+        "properties": {
+          "customerId": {
+            "type": "integer"
+          },
+          "customer_join_field": {
+            "type": "join",
+            "eager_global_ordinals": true,
+            "relations": {
+              "customer": "order"
+            }
+          },
+          "email": {
+            "type": "keyword"
+          },
+          "firstName": {
+            "type": "text"
+          },
+          "lastName": {
+            "type": "text"
+          },
+          "orderAmount": {
+            "type": "double"
+          },
+          "orderDate": {
+            "type": "date",
+            "format": "MMddyyyy"
+          },
+          "orderId": {
+            "type": "integer"
+          },
+          "orderItems": {
+            "type": "nested",
+            "properties": {
+              "orderItemId": {
+                "type": "integer"
+              },
+              "quantity": {
+                "type": "integer"
+              },
+              "unitPrice": {
+                "type": "double"
+              }
+            }
+          },
+          "packages": {
+            "type": "nested",
+            "properties": {
+              "orderId": {
+                "type": "integer"
+              },
+              "packageId": {
+                "type": "integer"
+              },
+              "qty": {
+                "type": "integer"
+              },
+              "weight": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

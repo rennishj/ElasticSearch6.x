@@ -11,6 +11,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ES6.POCO", "ES6.POCO\ES6.PO
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ES6.TestHarness", "ES6.TestHarness\ES6.TestHarness.csproj", "{35820149-81B9-41C1-B666-4F58CF535E58}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sample_data", "Sample_data", "{84E42AB1-4BD5-4254-B88F-3E9CFD76B82A}"
+	ProjectSection(SolutionItems) = preProject
+		mappings.json = mappings.json
+		NEST_Created_Auto_Mapping.json = NEST_Created_Auto_Mapping.json
+		sample_data.json = sample_data.json
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

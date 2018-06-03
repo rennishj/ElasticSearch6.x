@@ -1,0 +1,50 @@
+{
+  "took": 227,
+  "timed_out": false,
+  "_shards": {
+    "total": 5,
+    "successful": 5,
+    "skipped": 0,
+    "failed": 0
+  },
+  "hits": {
+    "total": 2,
+    "max_score": 1,
+    "hits": [
+      {
+        "_index": "fa",
+        "_type": "customer",
+        "_id": "1",
+        "_score": 1,
+        "_source": {
+          "customerId": 1,
+          "firstName": "Rennish",
+          "lastName": "Joseph",
+          "email": "rennishj@gmail.com",
+          "customer_join_field": {
+            "name": "customer"
+          }
+        }
+      },
+      {
+        "_index": "fa",
+        "_type": "customer",
+        "_id": "2",
+        "_score": 1,
+        "_routing": "1",
+        "_source": {
+          "orderId": "1",
+          "orderAmount": "27.89",
+          "lastName": "Joseph",
+          "orderDate": "01/01/2018",
+          "packageIds": "10,20,30,40,50",
+          "orderItemIds": "100,101,102,103",
+          "customer_join_field": {
+            "name": "order",
+            "parent": "1"
+          }
+        }
+      }
+    ]
+  }
+}
