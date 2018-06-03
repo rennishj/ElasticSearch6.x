@@ -104,6 +104,8 @@ namespace Es6.DAL
                      .Id(cust.CustomerId)//to avaoid random Ids
                      .Routing(cust.CustomerId)
                     );
+
+                //var response = ESClient.Index(cust, i => i.Routing(Routing.From(cust)));
             }
             catch ( Exception ex)
             {
@@ -130,7 +132,7 @@ namespace Es6.DAL
 
                 var result = ESClient.Index<Document>(order,
                      c => c
-                     .Id(order.CustomerId)//to avaoid random Ids
+                     .Id(order.OrderId)//to avaoid random Ids
                      .Routing(order.CustomerId)
                     );
 

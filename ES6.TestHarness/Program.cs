@@ -39,7 +39,7 @@ namespace ES6.TestHarness
             int parentId = 1;
             var orders = new Order
             {
-                OrderId = 1,
+                OrderId = 100,
                // OrderDate = new DateTime(2017, 10, 11),
                 CustomerId = 1,
                 Amount = 23.45m,

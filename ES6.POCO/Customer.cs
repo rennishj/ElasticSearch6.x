@@ -41,11 +41,7 @@ namespace ES6.POCO
         public int OrderId { get; set; }
 
         [PropertyName("customerId")]
-        public int CustomerId { get; set; }
-
-        //[PropertyName("orderDate")]
-        //[Date(Format = "MMddyyyy")]
-        //public DateTime? OrderDate { get; set; }
+        public int CustomerId { get; set; }        
 
         [PropertyName("orderAmount")]
         public decimal Amount { get; set; }       
