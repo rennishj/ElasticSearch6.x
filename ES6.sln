@@ -18,6 +18,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sample_data", "Sample_data"
 		sample_data.json = sample_data.json
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SingleParentMapping", "SingleParentMapping", "{CB90627B-D872-4161-823F-C47322DEB44B}"
+	ProjectSection(SolutionItems) = preProject
+		single_parent_mapping.json = single_parent_mapping.json
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +48,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CB90627B-D872-4161-823F-C47322DEB44B} = {84E42AB1-4BD5-4254-B88F-3E9CFD76B82A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B2477637-7A3C-4247-B878-9DA5A6A82813}

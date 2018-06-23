@@ -1,0 +1,121 @@
+{
+  "mappings": {
+    "_doc": {
+      "properties": {
+        "customerId": {
+          "type": "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          }
+        },
+        "firstName": {
+          "type": "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          }
+        },
+        "lastName": {
+          "type": "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          }
+        },
+        "email": {
+          "type": "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          }
+        },
+        "orderId": {
+          "type": "integer"
+        },
+        "orderAmount": {
+          "type": "double"
+        },
+        "orderDate": {
+          "type": "date",
+          "format": "MMddyyyy"
+        },
+        "orderItemId": {
+          "type": "integer"
+        },
+        "quantity": {
+          "type": "integer"
+        },
+        "unitPrice": {
+          "type": "double"
+        },
+        "packageId": {
+          "type": "integer"
+        },
+        "qty": {
+          "type": "integer"
+        },
+        "weight": {
+          "type": "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          }
+        },
+        "address1": {
+          "type": "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          }
+        },
+        "city": {
+          "type": "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          }
+        },
+        "state": {
+          "type": "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          }
+        },
+        "zip": {
+          "type": "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          }
+        },
+        "customer_join_field": {
+          "type": "join",
+          "relations": {
+            "customer": [ "order", "package", "packageitem", "orderitem", "shippingaddress", "billingaddress" ]
+          }
+        }
+
+      }
+    }
+  }
+}
