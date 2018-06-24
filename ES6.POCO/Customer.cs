@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace ES6.POCO
 {
     //https://www.elastic.co/guide/en/elasticsearch/client/net-api/current/attribute-mapping.html
-    [ElasticsearchType(Name = "customer")]
+    [ElasticsearchType(Name = "_doc")]
     public class Document
     {
         [PropertyName("customer_join_field")]
@@ -31,6 +31,12 @@ namespace ES6.POCO
 
         [PropertyName("email")]       
         public string Email { get; set; }
+
+        public List<Order> Orders { get; set; }
+        public List<Package> Packages { get; set; }
+        public List<OrderItem> OrderItems { get; set; }
+        public List<ShippingAddress> ShippingAddress { get; set; }
+        public List<BillingAddress> BillingAddress { get; set; }
     }
 
     [ElasticsearchType(Name = "order")]

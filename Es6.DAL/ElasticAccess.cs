@@ -99,10 +99,10 @@ namespace Es6.DAL
         {
             try
             {
-                var result = ESClient.Index<Document>(cust,
+                var result = ESClient.Index<Customer>(cust,
                      c => c
                      .Id(cust.CustomerId)//to avaoid random Ids
-                     .Routing(cust.CustomerId)
+                     //.Routing(cust.CustomerId)
                     );
 
                 //var response = ESClient.Index(cust, i => i.Routing(Routing.From(cust)));
@@ -130,7 +130,7 @@ namespace Es6.DAL
                 //     .Routing(order.CustomerId)
                 //    );
 
-                var result = ESClient.Index<Document>(order,
+                var result = ESClient.Index<Order>(order,
                      c => c
                      .Id(order.OrderId)//to avaoid random Ids
                      .Routing(order.CustomerId)
