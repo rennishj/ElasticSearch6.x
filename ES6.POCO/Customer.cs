@@ -29,14 +29,14 @@ namespace ES6.POCO
         [Text]
         public string LastName { get; set; }
 
-        [PropertyName("email")]       
+        [PropertyName("email")]
+        [Text]
         public string Email { get; set; }
-
-        public List<Order> Orders { get; set; }
-        public List<Package> Packages { get; set; }
-        public List<OrderItem> OrderItems { get; set; }
-        public List<ShippingAddress> ShippingAddress { get; set; }
-        public List<BillingAddress> BillingAddress { get; set; }
+        //public List<Order> Orders { get; set; }
+        //public List<Package> Packages { get; set; }
+        //public List<OrderItem> OrderItems { get; set; }
+        //public Address ShippingAddress { get; set; }
+        //public Address BillingAddress { get; set; }
     }
 
     [ElasticsearchType(Name = "order")]
@@ -63,9 +63,17 @@ namespace ES6.POCO
     [ElasticsearchType(Name = "package")]
     public class Package : Document
     {
+        [PropertyName("packageId")]
         public int PackageId { get; set; }
+
+        [PropertyName("qty")]
         public int Qty { get; set; }
+
+        [PropertyName("orderId")]
         public int OrderId { get; set; }
+
+        [PropertyName("weight")]
+        [Text]
         public string Weight { get; set; }
     }
 
@@ -85,41 +93,31 @@ namespace ES6.POCO
         public decimal? UnitPrice { get; set; }
     }
 
-    [ElasticsearchType(Name = "billingaddress")]
-    public class BillingAddress :Document
+    [ElasticsearchType(Name = "address")]
+    public class Address :Document
     {
         [PropertyName("orderId")]
         public int OrderId { get; set; }
 
         [PropertyName("address1")]
+        [Text]
         public string Address1 { get; set; }
 
         [PropertyName("city")]
+        [Text]
         public string City { get; set; }
 
         [PropertyName("state")]
+        [Text]
         public string State { get; set; }
 
         [PropertyName("zip")]
+        [Text]
         public string Zip { get; set; }
+
+        [PropertyName("addressType")]
+        [Text]
+        public string AddressType { get; set; }
     }
-
-    [ElasticsearchType(Name = "shippingaddress")]
-    public class ShippingAddress : Document
-    {
-        [PropertyName("orderId")]
-        public int OrderId { get; set; }
-
-        [PropertyName("address1")]
-        public string Address1 { get; set; }
-
-        [PropertyName("city")]
-        public string City { get; set; }
-
-        [PropertyName("state")]
-        public string State { get; set; }
-
-        [PropertyName("zip")]
-        public string Zip { get; set; }
-    }
+    
 }

@@ -13,14 +13,14 @@ namespace ES6.TestHarness
     {
         static void Main(string[] args)
         {
-            //ElasticAccess.ConfigureIndex();
+            ElasticAccess.ConfigureIndex();
             //var cust = GenerateRandomCustomer();
             //ElasticAccess.AddCustomerDocument(cust);
-            var customer = GenerateCustomer();
-            ElasticAccess.AddCustomerDocument(customer);
-            var order = GenerateOrders(customer.CustomerId);
-            ElasticAccess.AddOrderDocument(order.ElementAt(0));
-            var Packages = GeneratePackages(customer.CustomerId);
+            //var customer = GenerateCustomer();
+            //ElasticAccess.AddCustomerDocument(customer);
+            //var order = GenerateOrders(customer.CustomerId);
+            //ElasticAccess.AddOrderDocument(order.ElementAt(0));
+            //var Packages = GeneratePackages(customer.CustomerId);
             //customer.OrderItems = GenerateOrderItems(customer.CustomerId);
             
             Console.ReadLine();

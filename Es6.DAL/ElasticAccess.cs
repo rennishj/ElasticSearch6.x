@@ -18,19 +18,15 @@ namespace Es6.DAL
                
                 var connectionPool = new SingleNodeConnectionPool(new Uri("http://localhost:9200"));
                 var settings = new ConnectionSettings(connectionPool)
-                                              .DefaultMappingFor<Document>(i => i
-                                              .IndexName("fa")
-                                              .TypeName("customer"))
-                                              .DefaultMappingFor<Customer>(i => i
-                                              .IndexName("fa")
-                                              .TypeName("customer"))                                              
-                                              .DefaultMappingFor<Order>(i => i
-                                              .IndexName("fa")
-                                              .TypeName("customer"))                                              
+                                              .DefaultMappingFor<Document>(m => m.IndexName("fa").TypeName("_doc"))
+                                              .DefaultMappingFor<Customer>(m => m.IndexName("fa").TypeName("_doc"))
+                                              .DefaultMappingFor<Order>(m => m.IndexName("fa").TypeName("_doc"))
+                                              .DefaultMappingFor<Package>(m => m.IndexName("fa").TypeName("_doc"))
+                                              .DefaultMappingFor<OrderItem>(m => m.IndexName("fa").TypeName("_doc"))
+                                              .DefaultMappingFor<Address>(m => m.IndexName("fa").TypeName("_doc"))
                                               .EnableDebugMode()
-                                              .PrettyJson()
-                                              .RequestTimeout(TimeSpan.FromMinutes(2));
-                                              
+                                              .PrettyJson();
+
                 return new ElasticClient(settings);
             }
         }
@@ -69,17 +65,19 @@ namespace Es6.DAL
                      .RoutingField(r => r.Required())
                      .AutoMap<Customer>()
                      .AutoMap<Order>()
+                     .AutoMap<Package>()
+                     .AutoMap<OrderItem>()
+                     .AutoMap<Address>()
                      .Properties(props => props
                         .Join(j => j
                             .Name(p => p.CustomerJoinField)
                             .Relations(r => r
-                                .Join<Customer, Order>()
+                                .Join("customer","order,package,orderItem,address")
                                 )
-                            )
-                         )
-                      )
-                  )
-             );
+                            )                            
+                         )                         
+                      )                      
+             ));
 
             }
             catch (Exception ex)
