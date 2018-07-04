@@ -13,7 +13,7 @@ namespace ES6.TestHarness
     {
         static void Main(string[] args)
         {
-            ElasticAccess.ConfigureIndex();
+            //ElasticAccess.ConfigureIndex();
             //var cust = GenerateRandomCustomer();
             //ElasticAccess.AddCustomerDocument(cust);
             //var customer = GenerateCustomer();
@@ -22,7 +22,7 @@ namespace ES6.TestHarness
             //ElasticAccess.AddOrderDocument(order.ElementAt(0));
             //var Packages = GeneratePackages(customer.CustomerId);
             //customer.OrderItems = GenerateOrderItems(customer.CustomerId);
-            
+            ElasticAccess.OrdersByCustomerName("Nathan");
             Console.ReadLine();
         }
 
@@ -88,5 +88,6 @@ namespace ES6.TestHarness
             };
             return packages;
         }
+
     }
 }

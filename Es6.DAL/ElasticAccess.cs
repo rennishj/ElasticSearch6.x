@@ -19,11 +19,11 @@ namespace Es6.DAL
                 var connectionPool = new SingleNodeConnectionPool(new Uri("http://localhost:9200"));
                 var settings = new ConnectionSettings(connectionPool)
                                               .DefaultMappingFor<Document>(m => m.IndexName("fa").TypeName("_doc"))
-                                              .DefaultMappingFor<Customer>(m => m.IndexName("fa").TypeName("_doc"))
-                                              .DefaultMappingFor<Order>(m => m.IndexName("fa").TypeName("_doc"))
-                                              .DefaultMappingFor<Package>(m => m.IndexName("fa").TypeName("_doc"))
-                                              .DefaultMappingFor<OrderItem>(m => m.IndexName("fa").TypeName("_doc"))
-                                              .DefaultMappingFor<Address>(m => m.IndexName("fa").TypeName("_doc"))
+                                              .DefaultMappingFor<Customer>(m => m.IndexName("fa").TypeName("customer"))
+                                              .DefaultMappingFor<Order>(m => m.IndexName("fa").TypeName("order"))
+                                              .DefaultMappingFor<Package>(m => m.IndexName("fa").TypeName("package"))
+                                              .DefaultMappingFor<OrderItem>(m => m.IndexName("fa").TypeName("orderItem"))
+                                              .DefaultMappingFor<Address>(m => m.IndexName("fa").TypeName("address"))
                                               .EnableDebugMode()
                                               .PrettyJson();
 
@@ -59,9 +59,9 @@ namespace Es6.DAL
             try
             {
                 var createIndexResponse = ESClient.CreateIndex("fa", c => c
-                     .Index<Document>()
+                     .Index<Customer>()
                      .Mappings(ms => ms
-                     .Map<Document>(m => m
+                     .Map<Customer>(m => m
                      .RoutingField(r => r.Required())
                      .AutoMap<Customer>()
                      .AutoMap<Order>()
@@ -145,23 +145,21 @@ namespace Es6.DAL
 
         #region Search Region
 
-        public static void OrdersByCustomerId(string customerId)
+        public static void OrdersByCustomerName(string firstName)
         {
             try
             {
-                var searchResult = ESClient.Search<Document>(s => s
+                var searchResult = ESClient.Search<Order> (s => s                                          
                                           .From(0)
                                           .Size(100)
-                                          .Type<Order>()
+                                          .Type<Document>()
                                           .Query(q =>
-                                          q.HasParent<Customer>(c =>
-                                                   c.ter
+                                          q.HasParent<Customer>(c => c
+                                                .Query(cq => cq.MatchPhrasePrefix(m => m.Field(p => p.FirstName).Query(firstName)))
 
-                   ));
-                                            
+                                        )));
+                var eQuqry  = Encoding.UTF8.GetString(searchResult.ApiCall.RequestBodyInBytes);
 
-
-                );
             }
             catch (Exception ex)
             {

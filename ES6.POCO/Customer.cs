@@ -8,15 +8,16 @@ using System.Threading.Tasks;
 namespace ES6.POCO
 {
     //https://www.elastic.co/guide/en/elasticsearch/client/net-api/current/attribute-mapping.html
+    
     [ElasticsearchType(Name = "_doc")]
     public class Document
     {
-        [PropertyName("customer_join_field")]
-        public JoinField CustomerJoinField { get; set; }
+        //[PropertyName("customer_join_field")]
+        //public JoinField CustomerJoinField { get; set; }
     }
     
     [ElasticsearchType(Name ="customer")]
-    public class Customer :Document
+    public class Customer 
     {
         [PropertyName("customerId")]
         public int CustomerId { get; set; }
@@ -32,6 +33,9 @@ namespace ES6.POCO
         [PropertyName("email")]
         [Text]
         public string Email { get; set; }
+
+        [PropertyName("customer_join_field")]
+        public JoinField CustomerJoinField { get; set; }
         //public List<Order> Orders { get; set; }
         //public List<Package> Packages { get; set; }
         //public List<OrderItem> OrderItems { get; set; }
@@ -40,13 +44,10 @@ namespace ES6.POCO
     }
 
     [ElasticsearchType(Name = "order")]
-    public class Order : Document
+    public class Order : Customer
     {
         [PropertyName("orderId")]
-        public int OrderId { get; set; }
-
-        [PropertyName("customerId")]
-        public int CustomerId { get; set; }        
+        public int OrderId { get; set; } 
 
         [PropertyName("orderAmount")]
         public decimal Amount { get; set; }
@@ -64,7 +65,7 @@ namespace ES6.POCO
     }
 
     [ElasticsearchType(Name = "package")]
-    public class Package : Document
+    public class Package : Customer
     {
         [PropertyName("packageId")]
         public int PackageId { get; set; }
@@ -81,7 +82,7 @@ namespace ES6.POCO
     }
 
     [ElasticsearchType(Name = "orderItem")]
-    public class OrderItem : Document
+    public class OrderItem : Customer
     {
         [PropertyName("orderId")]
         public int OrderId { get; set; }
@@ -97,7 +98,7 @@ namespace ES6.POCO
     }
 
     [ElasticsearchType(Name = "address")]
-    public class Address :Document
+    public class Address :Customer
     {
         [PropertyName("orderId")]
         public int OrderId { get; set; }
