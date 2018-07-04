@@ -23,36 +23,13 @@ namespace Es6.DAL
                                               .DefaultMappingFor<Order>(m => m.IndexName("fa").TypeName("order"))
                                               .DefaultMappingFor<Package>(m => m.IndexName("fa").TypeName("package"))
                                               .DefaultMappingFor<OrderItem>(m => m.IndexName("fa").TypeName("orderItem"))
-                                              .DefaultMappingFor<Address>(m => m.IndexName("fa").TypeName("address"))
+                                              .DefaultMappingFor<Address>(m => m.IndexName("fa").TypeName("address"))                                              
                                               .EnableDebugMode()
                                               .PrettyJson();
 
                 return new ElasticClient(settings);
             }
-        }
-
-        public static void Search()
-        {
-
-            try
-            {                
-                var result = ESClient.Search<Customer>(s => s
-                                      .Query(q => q
-                                      .MatchAll()
-
-                                      ) );
-                if(result != null && result.Hits.Count > 0)
-                {
-
-                }
-                                       
-            }
-            catch (Exception ex)
-            {
-
-                throw;
-            }
-        }
+        }        
 
         public static void ConfigureIndex()
         {
@@ -159,6 +136,29 @@ namespace Es6.DAL
 
                                         )));
                 var eQuqry  = Encoding.UTF8.GetString(searchResult.ApiCall.RequestBodyInBytes);
+
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
+
+        public static void Search()
+        {
+
+            try
+            {
+                var searchResult = ESClient.Search<Customer>(s => s
+                                      .From(0)
+                                      .Size(100)
+                                      .Type<Document>()
+                                      .Query(q => q
+                                      .MatchAll()
+
+                                      ));
+                var eQuqry = Encoding.UTF8.GetString(searchResult.ApiCall.RequestBodyInBytes);
 
             }
             catch (Exception ex)

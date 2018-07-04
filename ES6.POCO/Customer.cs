@@ -36,15 +36,6 @@ namespace ES6.POCO
 
         [PropertyName("customer_join_field")]
         public JoinField CustomerJoinField { get; set; }
-        //public List<Order> Orders { get; set; }
-        //public List<Package> Packages { get; set; }
-        //public List<OrderItem> OrderItems { get; set; }
-        //public Address ShippingAddress { get; set; }
-        //public Address BillingAddress { get; set; }
-
-        public List<Order> Orders { get; set; }
-
-        public List<OrderItem> OrderItems { get; set; }
     }
 
     [ElasticsearchType(Name = "order")]
@@ -57,18 +48,7 @@ namespace ES6.POCO
         public decimal Amount { get; set; }
 
         [PropertyName("orderDate")]
-        public string OrderDate { get; set; }
-
-        //[PropertyName("customerId")]
-        //public int CustomerId { get; set; }
-
-        //[Nested]
-        //[PropertyName("packages")]
-        //public List<Package> Packages { get; set; }
-
-        //[Nested]
-        //[PropertyName("orderItems")]
-        //public List<OrderItem> OrderItems { get; set; }
+        public string OrderDate { get; set; }       
     }
 
     [ElasticsearchType(Name = "package")]
@@ -101,10 +81,7 @@ namespace ES6.POCO
         public int Quantity { get; set; }
 
         [PropertyName("unitPrice")]
-        public decimal? UnitPrice { get; set; }
-
-        //[PropertyName("customerId")]
-        //public int CustomerId { get; set; }
+        public decimal? UnitPrice { get; set; }        
     }
 
     [ElasticsearchType(Name = "address")]
@@ -132,6 +109,19 @@ namespace ES6.POCO
         [PropertyName("addressType")]
         [Text]
         public string AddressType { get; set; }
+    }
+
+    public class SearchResult
+    {
+        [PropertyName("customer")]
+        public Customer Customer { get; set; }
+
+        [PropertyName("order")]
+        public List<Order> Orders { get; set; }
+
+        [PropertyName("orderItem")]
+
+        public List<OrderItem> OrderItems { get; set; }
     }
     
 }
