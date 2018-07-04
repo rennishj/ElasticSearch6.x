@@ -20,6 +20,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sample_data", "Sample_data"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SingleParentMapping", "SingleParentMapping", "{CB90627B-D872-4161-823F-C47322DEB44B}"
 	ProjectSection(SolutionItems) = preProject
+		..\..\sample_mappings_by_rennish\customer_sample_data.json = ..\..\sample_mappings_by_rennish\customer_sample_data.json
+		..\..\sample_mappings_by_rennish\mappings.json = ..\..\sample_mappings_by_rennish\mappings.json
+		..\..\sample_mappings_by_rennish\order_data.json = ..\..\sample_mappings_by_rennish\order_data.json
+		..\..\sample_mappings_by_rennish\orderItem.json = ..\..\sample_mappings_by_rennish\orderItem.json
 		single_parent_mapping.json = single_parent_mapping.json
 	EndProjectSection
 EndProject

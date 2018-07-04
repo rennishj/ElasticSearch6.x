@@ -49,7 +49,10 @@ namespace ES6.POCO
         public int CustomerId { get; set; }        
 
         [PropertyName("orderAmount")]
-        public decimal Amount { get; set; }       
+        public decimal Amount { get; set; }
+
+        [PropertyName("orderDate")]
+        public string OrderDate { get; set; }
 
         //[Nested]
         //[PropertyName("packages")]

@@ -143,6 +143,35 @@ namespace Es6.DAL
             }
         }
 
+        #region Search Region
+
+        public static void OrdersByCustomerId(string customerId)
+        {
+            try
+            {
+                var searchResult = ESClient.Search<Document>(s => s
+                                          .From(0)
+                                          .Size(100)
+                                          .Type<Order>()
+                                          .Query(q =>
+                                          q.HasParent<Customer>(c =>
+                                                   c.ter
+
+                   ));
+                                            
+
+
+                );
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
+
+        #endregion Search
+
 
     }
 }
