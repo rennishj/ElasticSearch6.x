@@ -1,0 +1,9 @@
+{
+  "customerId": "1",
+  "firstName": "Rennish",
+  "lastName": "Joseph",
+  "email": "rennish@yahoo.com",
+  "customer_join_field": {
+    "name": "customer"
+  }
+}
