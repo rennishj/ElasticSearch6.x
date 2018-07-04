@@ -12,8 +12,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ES6.TestHarness", "ES6.TestHarness\ES6.TestHarness.csproj", "{35820149-81B9-41C1-B666-4F58CF535E58}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sample_data", "Sample_data", "{84E42AB1-4BD5-4254-B88F-3E9CFD76B82A}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SingleParentMapping", "SingleParentMapping", "{CB90627B-D872-4161-823F-C47322DEB44B}"
 	ProjectSection(SolutionItems) = preProject
 		..\..\sample_mappings_by_rennish\customer_sample_data.json = ..\..\sample_mappings_by_rennish\customer_sample_data.json
 		..\..\sample_mappings_by_rennish\mappings.json = ..\..\sample_mappings_by_rennish\mappings.json
@@ -46,9 +44,6 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{CB90627B-D872-4161-823F-C47322DEB44B} = {84E42AB1-4BD5-4254-B88F-3E9CFD76B82A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B2477637-7A3C-4247-B878-9DA5A6A82813}

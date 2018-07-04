@@ -41,6 +41,10 @@ namespace ES6.POCO
         //public List<OrderItem> OrderItems { get; set; }
         //public Address ShippingAddress { get; set; }
         //public Address BillingAddress { get; set; }
+
+        public List<Order> Orders { get; set; }
+
+        public List<OrderItem> OrderItems { get; set; }
     }
 
     [ElasticsearchType(Name = "order")]
@@ -54,6 +58,9 @@ namespace ES6.POCO
 
         [PropertyName("orderDate")]
         public string OrderDate { get; set; }
+
+        //[PropertyName("customerId")]
+        //public int CustomerId { get; set; }
 
         //[Nested]
         //[PropertyName("packages")]
@@ -95,6 +102,9 @@ namespace ES6.POCO
 
         [PropertyName("unitPrice")]
         public decimal? UnitPrice { get; set; }
+
+        //[PropertyName("customerId")]
+        //public int CustomerId { get; set; }
     }
 
     [ElasticsearchType(Name = "address")]
