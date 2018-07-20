@@ -1,110 +1,65 @@
 {
   "fa": {
     "mappings": {
-      "customer": {
+      "_doc": {
+        "_routing": {
+          "required": true
+        },
         "properties": {
+          "address1": {
+            "type": "text"
+          },
+          "addressType": {
+            "type": "text"
+          },
+          "city": {
+            "type": "text"
+          },
           "customerId": {
-            "type": "text",
-            "fields": {
-              "keyword": {
-                "type": "keyword",
-                "ignore_above": 256
-              }
-            }
+            "type": "integer"
           },
           "customer_join_field": {
-            "properties": {
-              "name": {
-                "type": "text",
-                "fields": {
-                  "keyword": {
-                    "type": "keyword",
-                    "ignore_above": 256
-                  }
-                }
-              },
-              "parent": {
-                "type": "text",
-                "fields": {
-                  "keyword": {
-                    "type": "keyword",
-                    "ignore_above": 256
-                  }
-                }
-              }
+            "type": "join",
+            "eager_global_ordinals": true,
+            "relations": {
+              "customer": [ "order", "package", "orderItem", "address" ]
             }
           },
           "email": {
-            "type": "text",
-            "fields": {
-              "keyword": {
-                "type": "keyword",
-                "ignore_above": 256
-              }
-            }
+            "type": "text"
           },
           "firstName": {
-            "type": "text",
-            "fields": {
-              "keyword": {
-                "type": "keyword",
-                "ignore_above": 256
-              }
-            }
+            "type": "text"
           },
           "lastName": {
-            "type": "text",
-            "fields": {
-              "keyword": {
-                "type": "keyword",
-                "ignore_above": 256
-              }
-            }
+            "type": "text"
           },
           "orderAmount": {
-            "type": "text",
-            "fields": {
-              "keyword": {
-                "type": "keyword",
-                "ignore_above": 256
-              }
-            }
-          },
-          "orderDate": {
-            "type": "text",
-            "fields": {
-              "keyword": {
-                "type": "keyword",
-                "ignore_above": 256
-              }
-            }
+            "type": "double"
           },
           "orderId": {
-            "type": "text",
-            "fields": {
-              "keyword": {
-                "type": "keyword",
-                "ignore_above": 256
-              }
-            }
+            "type": "integer"
           },
-          "orderItemIds": {
-            "type": "text",
-            "fields": {
-              "keyword": {
-                "type": "keyword",
-                "ignore_above": 256
-              }
-            }
+          "orderItemId": {
+            "type": "integer"
           },
-          "packageIds": {
-            "type": "text",
-            "fields": {
-              "keyword": {
-                "type": "keyword",
-                "ignore_above": 256
-              }
-            }
+          "packageId": {
+            "type": "integer"
+          },
+          "qty": {
+            "type": "integer"
+          },
+          "state": {
+            "type": "text"
+          },
+          "unitPrice": {
+            "type": "double"
+          },
+          "weight": {
+            "type": "text"
+          },
+          "zip": {
+            "type": "text"
           }
         }
       }

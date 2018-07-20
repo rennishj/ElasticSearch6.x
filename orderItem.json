@@ -1,0 +1,11 @@
+//localhost:9200/fa/_doc/1?routing=2&refresh( You can have same id for different join types)
+{
+  "orderId": "2",
+  "orderItemId": "1",
+  "customerId": "2",
+  "qty": "2",
+  "customer_join_field": {
+    "name": "orderItem",
+    "parent": "2"
+  }
+}
